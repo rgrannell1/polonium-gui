@@ -9,6 +9,8 @@
 
 	<script type="text/javascript" src="js/jquery.js"></script>
 
+	<link href="css/polo.css" rel="stylesheet" type="text/css">
+
 	<script type="text/javascript">
 
 		const keyCode      = require('./js/key-code')
@@ -43,7 +45,6 @@
 		// hide the caplocks warning initially.
 		$("#caplocs-warning").hide()
 
-
 		// alert if caplocks is enabled.
 		$("#password").keypress(function (key) {
 
@@ -54,6 +55,7 @@
 			}
 		})
 
+		// execute the script if enter is called.
 		$("html").keypress(function (key) {
 			if (key.which === keyCode.enter) {
 				alert('enter!')
