@@ -6,7 +6,7 @@
 
 	<link href="css/bootstrap.min.css" rel="stylesheet" type="text/css">
 
-	<link href="css/flat-ui.css" rel="stylesheet" type="text/css">
+	<link href="css/bootstrap-theme.min.css" rel="stylesheet" type="text/css">
 
 	<script type="text/javascript" src="js/jquery.js"></script>
 
@@ -21,8 +21,7 @@
 	</script>
 
 	</head>
-	<body>
-
+	<body onload="initialise()">
 
 		<div class="panel panel-default">
 			<div class="panel-body">
@@ -67,8 +66,7 @@
 
 						<!-- A large generate-password button) -->
 
-						<button class="btn btn-lg btn-primary btn-block" type="submit" id="get-password">Get Password</button>
-
+						<button class="btn btn-lg btn-primary btn-block" type="button" id="get-password">Get Password</button>
 
 					    <div class="span4"></div>
 					</form>
@@ -82,10 +80,20 @@
 
 	<script type="text/javascript">
 
+		const initialise = function () {
+
+			$(".capslock-warning").hide()
+			// hide the password confirmation box.
+			$("#confirm-password").hide()
+			$("#success-password").hide()
+
+		}
+
+	</script>
+
+	<script type="text/javascript">
+
 		// hide the caplocks warning initially.
-		$(".capslock-warning").hide()
-		// hide the password confirmation box.
-		$("#confirm-password").hide()
 
 		// alert if caplocks is enabled.
 		$("#password").keypress(function (key) {
@@ -108,12 +116,19 @@
 
 		})
 
-		$("#get-password").on('click', function () {
 
+		$("#get-password").click(function () {
 
+			$(this)
+			.removeClass("btn-primary")
+			.addClass("btn-success")
+			.text("Copied!")
 
-			copy('test message')
-
+			/*
+			.removeClass("btn-success")
+			.addClass("btn-primary")
+			.text("Get Password")
+			*/
 
 		})
 
@@ -121,11 +136,11 @@
 
 
 		// execute the script if enter is called.
-		$("html").keypress(function (key) {
-			if (key.which === keyCode.enter) {
-				alert('enter!')
-			}
-		})
+		//$("html").keypress(function (key) {
+		//	if (key.which === keyCode.enter) {
+		//		alert('enter!')
+		//	}
+		//})
 
 
 
