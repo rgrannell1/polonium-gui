@@ -124,11 +124,17 @@
 			.addClass("btn-success")
 			.text("Copied!")
 
-			/*
-			.removeClass("btn-success")
-			.addClass("btn-primary")
-			.text("Get Password")
-			*/
+			const pid = setTimeout(function () {
+
+				$("#get-password")
+				.removeClass("btn-success")
+				.addClass("btn-primary")
+				.text("Get Password")
+
+				clearInterval(pid)
+
+			}, 1250)
+
 
 		})
 
