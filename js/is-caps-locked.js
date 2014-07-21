@@ -11,3 +11,5 @@ const isCapsLocked = function (event) {
 
 	return charCode.toLowerCase() !== charCode
 }
+
+module.exports = isCapsLocked

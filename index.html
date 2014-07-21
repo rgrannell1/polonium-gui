@@ -7,8 +7,14 @@
 	<link href="css/bootstrap.min.css" rel="stylesheet" type="text/css">
 	<link href="css/bootstrap-theme.min.css" rel="stylesheet" type="text/css">
 
-	<script type="text/javascript" src="js/jQuery.js"></script>
-	<script type="text/javascript" src="js/isCapsLocked.js" ></script>
+	<script type="text/javascript" src="js/jquery.js"></script>
+
+	<script type="text/javascript">
+
+		const keyCode      = require('./js/key-code')
+		const isCapsLocked = require('./js/is-caps-locked')
+
+	</script>
 
 	</head>
 	<body>
@@ -23,8 +29,6 @@
 				!
 			</span>
 		</div>
-
-
 
 		<div class="alert alert-danger alert-dismissible" role="alert">
 			<button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
@@ -49,6 +53,15 @@
 				$("#caplocs-warning").hide()
 			}
 		})
+
+		$("html").keypress(function (key) {
+			if (key.which === keyCode.enter) {
+				alert('enter!')
+			}
+		})
+
+
+
 
 	</script>
 
