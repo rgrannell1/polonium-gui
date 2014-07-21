@@ -16,6 +16,7 @@
 
 		const keyCode      = require('./js/key-code')
 		const isCapsLocked = require('./js/is-caps-locked')
+		const copy         = require('./js/copy')
 
 	</script>
 
@@ -23,50 +24,59 @@
 	<body>
 
 
-		<div class="container">
-			<form class="form-signin" role="form">
+		<div class="panel panel-default">
+			<div class="panel-body">
 
-				<div class="span8">
+				<div class="container">
+					<form class="form-main" role="form">
 
-					<!-- The salt input field. -->
+						<div class="span8">
 
-					<div class="input-group">
-						<input type="text"     class="form-control" id="salt"     placeholder="Salt" autofocus>
-					</div>
+							<!-- The salt input field. -->
 
+							<div class="input-group">
+								<input type="text"     class="form-control" id="salt"     placeholder="Salt" autofocus>
+							</div>
+
+					    </div>
+
+				    	<!-- The password input field, and associated caplocks warning. -->
+
+						<div class="input-group">
+							<input type="password" class="form-control" id="password" placeholder="Master Password">
+							<span class="input-group-addon capslock-warning">
+								!
+							</span>
+						</div>
+
+						<div class="input-group">
+							<input type="password" class="form-control" id="confirm-password" placeholder="Re-enter password">
+							<span class="input-group-addon capslock-warning">
+								!
+							</span>
+						</div>
+
+						<!-- Should the password be verified (and entropy be displayed?) -->
+						<div>
+
+							<label>
+								<input type="checkbox" id="should-verify"> Confirm your password
+							</label>
+
+						</div>
+
+						<!-- A large generate-password button) -->
+
+						<button class="btn btn-lg btn-primary btn-block" type="submit" id="get-password">Get Password</button>
+
+
+					    <div class="span4"></div>
+					</form>
 			    </div>
 
-		    	<!-- The password input field, and associated caplocks warning. -->
+			</div>
+		</div>
 
-				<div class="input-group">
-					<input type="password" class="form-control" id="password" placeholder="Master Password">
-					<span class="input-group-addon capslock-warning">
-						!
-					</span>
-				</div>
-
-				<div class="input-group">
-					<input type="password" class="form-control" id="confirm-password" placeholder="Confirm your password">
-					<span class="input-group-addon capslock-warning">
-						!
-					</span>
-				</div>
-
-				<!-- Should the password be verified (and entropy be displayed?) -->
-				<div>
-
-					<label>
-						<input type="checkbox" id="should-verify"> Confirm your password
-					</label>
-
-				</div>
-
-					<button class="btn btn-lg btn-primary btn-block" type="submit">Get Password</button>
-
-
-			    <div class="span4"></div>
-			</form>
-	    </div>
 
 	</body>
 
@@ -95,6 +105,15 @@
 			} else {
 				$("#confirm-password").hide()
 			}
+
+		})
+
+		$("#get-password").on('click', function () {
+
+
+
+			copy('test message')
+
 
 		})
 
