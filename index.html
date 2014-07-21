@@ -11,6 +11,9 @@
 	<script type="text/javascript" src="js/isCapsLocked.js" ></script>
 
 	</head>
+	<style type="text/css">
+
+	</style>
 	<body>
 
 		<div class="input-group">
@@ -19,8 +22,8 @@
 
 		<div class="input-group">
 			<input type="password" class="form-control" id="password" placeholder="Master Password">
-			<span class="input-group-addon">
-				<i class="icon-large icon-warning-sign"></i>
+			<span class="input-group-addon" id="caplocs-warning">
+				!
 			</span>
 		</div>
 
@@ -36,13 +39,17 @@
 
 	<script type="text/javascript">
 
+		// hide the caplocks warning initially.
+		$("#caplocs-warning").hide()
+
+
 		// alert if caplocks is enabled.
 		$("#password").keypress(function (key) {
 
 			if (isCapsLocked(key)) {
-				alert('hi!')
+				$("#caplocs-warning").show()
 			} else {
-
+				$("#caplocs-warning").hide()
 			}
 
 		})
