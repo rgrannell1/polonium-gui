@@ -1,0 +1,9 @@
+{
+	"name": "polonium-gui",
+	"main": "index.html",
+	"window": {
+		"height":  350,
+		"width" :  566,
+		"toolbar": false
+	}
+}
