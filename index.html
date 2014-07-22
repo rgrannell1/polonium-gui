@@ -1,11 +1,11 @@
 <!DOCTYPE html>
+<html lang="en">
 <html>
 	<head>
 	<title>Polonium</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 	<link href="css/bootstrap.min.css" rel="stylesheet" type="text/css">
-
 	<link href="css/bootstrap-theme.min.css" rel="stylesheet" type="text/css">
 
 	<script type="text/javascript" src="js/jquery.js"></script>
@@ -13,6 +13,10 @@
 	<link href="css/polo.css" rel="stylesheet" type="text/css">
 
 	<script type="text/javascript">
+		/*
+
+			Require dependencies.
+		*/
 
 		const keyCode      = require('./js/key-code')
 		const isCapsLocked = require('./js/is-caps-locked')
@@ -21,75 +25,33 @@
 	</script>
 
 	</head>
-	<body onload="initialise()">
+	<body>
 
-		<div class="panel panel-default">
-			<div class="panel-body">
+	<div class="container">
 
-				<div class="container">
-					<form class="form-main" role="form">
+		<form class="form-main" role="form">
 
-						<div class="span8">
+			<!-- The salt input field. -->
 
-							<!-- The salt input field. -->
-
-							<div class="input-group">
-								<input type="text"     class="form-control" id="salt"     placeholder="Salt" autofocus>
-							</div>
-
-					    </div>
-
-				    	<!-- The password input field, and associated caplocks warning. -->
-
-						<div class="input-group">
-							<input type="password" class="form-control" id="password" placeholder="Master Password">
-							<span class="input-group-addon capslock-warning">
-								!
-							</span>
-						</div>
-
-						<div class="input-group">
-							<input type="password" class="form-control" id="confirm-password" placeholder="Re-enter password">
-							<span class="input-group-addon capslock-warning">
-								!
-							</span>
-						</div>
-
-						<!-- Should the password be verified (and entropy be displayed?) -->
-						<div>
-
-							<label>
-								<input type="checkbox" id="should-verify"> Confirm your password
-							</label>
-
-						</div>
-
-						<!-- A large generate-password button) -->
-
-						<button class="btn btn-lg btn-primary btn-block" type="button" id="get-password">Get Password</button>
-
-					    <div class="span4"></div>
-					</form>
-			    </div>
-
+			<div class="input-group">
+				<input type="text" class="form-control" spellcheck="false" value="" id="salt" placeholder="Salt" autofocus tabindex="1">
 			</div>
-		</div>
 
+	    	<!-- The password input field, and associated caplocks warning. -->
+
+			<div class="input-group">
+				<input type="password" class="form-control" id="password" placeholder="Master Password" tabindex="2">
+			</div>
+
+			<!-- A large generate-password button) -->
+
+			<button class="btn btn-lg btn-primary btn-block" type="button" id="get-password" tabindex="3">Get Password</button>
+
+		</form>
+
+    </div>
 
 	</body>
-
-	<script type="text/javascript">
-
-		const initialise = function () {
-
-			$(".capslock-warning").hide()
-			// hide the password confirmation box.
-			$("#confirm-password").hide()
-			$("#success-password").hide()
-
-		}
-
-	</script>
 
 	<script type="text/javascript">
 
@@ -98,13 +60,11 @@
 		// alert if caplocks is enabled.
 		$("#password").keypress(function (key) {
 
-			if (isCapsLocked(key)) {
-				$(".capslock-warning").show()
-			} else {
-				$(".capslock-warning").hide()
-			}
-		})
+			isCapsLocked(key) ?
+				$(".capslock-warning").text("!"):
+				$("#capslock-warning").text("")
 
+		})
 
 		$("#should-verify").on('change', function () {
 
@@ -115,6 +75,7 @@
 			}
 
 		})
+
 
 
 		$("#get-password").click(function () {
@@ -135,21 +96,7 @@
 
 			}, 1250)
 
-
 		})
-
-
-
-
-		// execute the script if enter is called.
-		//$("html").keypress(function (key) {
-		//	if (key.which === keyCode.enter) {
-		//		alert('enter!')
-		//	}
-		//})
-
-
-
 
 	</script>
 
