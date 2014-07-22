@@ -55,28 +55,9 @@
 
 	<script type="text/javascript">
 
-		// hide the caplocks warning initially.
-
-		// alert if caplocks is enabled.
-		$("#password").keypress(function (key) {
-
-			isCapsLocked(key) ?
-				$(".capslock-warning").text("!"):
-				$("#capslock-warning").text("")
-
-		})
-
-		$("#should-verify").on('change', function () {
-
-			if ($(this).is(":checked")) {
-				$("#confirm-password").show()
-			} else {
-				$("#confirm-password").hide()
-			}
-
-		})
-
-
+		/*
+			Submit Button Code.
+		*/
 
 		$("#get-password").click(function () {
 

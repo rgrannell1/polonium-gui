@@ -3,14 +3,19 @@
 	"main": "index.html",
 	"window": {
 		"width" :     350,
-		"height":     240,
+		"height":     215,
 
 		"min_width" : 350,
-		"min_height": 240,
+		"min_height": 215,
 
 		"max_width" : 350,
-		"max_height": 240,
+		"max_height": 215,
 
-		"toolbar": false
+		"toolbar":   false,
+		"resizable": false
+	}
+	"dependencies": {
+      "is"      : "rgrannell1/is",
+      "polonium": "rgrannell1/polonium"
 	}
 }
