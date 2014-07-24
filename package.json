@@ -13,9 +13,9 @@
 
 		"toolbar":   false,
 		"resizable": false
-	}
+	},
 	"dependencies": {
-      "is"      : "rgrannell1/is",
-      "polonium": "rgrannell1/polonium"
+		"bignum":   "*",
+    	"is"      : "rgrannell1/is"
 	}
 }
