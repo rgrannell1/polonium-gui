@@ -1,7 +1,5 @@
 #!/usr/bin/env node
 
-const getPassword = require("./get-password.js")
-
 const deriveKeys  = require("./derive-keys.js")
 const entropyOf   = require("./entropy-of.js")
 const log         = console.log
@@ -16,7 +14,6 @@ const main = function (args) {
 	/*
 	The main function. Takes arguments from the command line.
 	*/
-
 
 	console.log(args)
 

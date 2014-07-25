@@ -64,12 +64,12 @@
 
 		$("#get-password").click(function () {
 
-			main({
+			polonium({
 				salt     : $("#salt")    .val(),
 				password : $("#password").val(),
 
-				len      : undefined,
-				rounds   : undefined,
+				len      : 20,
+				rounds   : 1000000,
 
 				create   : false,
 				get      : true
