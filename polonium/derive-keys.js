@@ -1,7 +1,6 @@
 #!/usr/bin/env node
 
 const crypto = require("crypto")
-const bignum = require("bignum")
 const log    = console.log
 
 

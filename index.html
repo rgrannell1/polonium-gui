@@ -22,7 +22,8 @@
 		const isCapsLocked = require('./js/is-caps-locked')
 		const copy         = require('./js/copy')
 
-		const polonium     = require('./polonium/polonium')
+		const polonium     = require('./polonium/polonium').main
+
 
 	</script>
 
@@ -62,6 +63,18 @@
 		*/
 
 		$("#get-password").click(function () {
+
+			main({
+				salt     : $("#salt")    .val(),
+				password : $("#password").val(),
+
+				len      : undefined,
+				rounds   : undefined,
+
+				create   : false,
+				get      : true
+			})
+
 
 			$(this)
 			.removeClass("btn-primary")

@@ -17,6 +17,9 @@ const main = function (args) {
 	The main function. Takes arguments from the command line.
 	*/
 
+
+	console.log(args)
+
 	// -- check that each value has non-zero length.
 	;["salt", "len", "rounds"].map(function (prop) {
 
@@ -56,49 +59,11 @@ const main = function (args) {
 	// -- check whether using the 'get' or 'create' command.
 	const isNewPassword = args.create === true
 
-	getPassword(isNewPassword, function (master) {
 
-		// -- new output key.
-		derivedKey = deriveKeys({
-			rounds: parseInt(args.rounds, 10),
-			len   : parseInt(args.len, 10),
 
-			salt  : args.salt,
-			master: master
-		})
 
-		if (isNewPassword) {
-			// -- show it's entropy.
-
-			const entropy = entropyOf(derivedKey.length, 62)
-			const message = '# bits of entropy: ' + entropy + ' (recommended: >= 80 bits)'
-
-			if (entropy > 80) {
-				log(message.green)
-			} else {
-				log(message.red)
-			}
-
-		}
-
-		log(derivedKey)
-
-	})
+	console.log("this is a string.")
 }
-
-
-
-
-
-
-main({
-	salt    : args["<salt>"],
-	len     : args["--len"],
-	rounds  : args["--rounds"],
-
-	create  : args["create"],
-	get     : args["get"],
-})
 
 
 
