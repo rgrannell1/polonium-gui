@@ -18,6 +18,7 @@
 			Require dependencies.
 		*/
 
+		const is       = require('is')
 		const keyCode  = require('./js/key-code')
 		const copy     = require('./js/copy')
 		const polonium = require('./polonium/polonium').main
@@ -54,13 +55,19 @@
 	<script type="text/javascript">
 
 		/*
-			Submit Button Code.
+			toClipboard :: string -> function -> undefined
 		*/
 
 		const toClipboard = function (str, callback) {
 
-			cprocess.exec('echo "' + str + '" | xclip -selection clipboard', callback)
+			if (!is.string(str)) {
+				throw 'toClipboard: str must be a string; actual class was ' + is.what(str)
+			}
+			if (!is.function(callback)) {
+				throw 'toClipboard: callback must be a function; actual class was ' + is.what(callback)
+			}
 
+			cprocess.exec('echo "' + str + '" | xclip -selection clipboard', callback)
 		}
 
 		/*
