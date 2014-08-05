@@ -19,11 +19,9 @@
 		*/
 
 		const keyCode      = require('./js/key-code')
-		const isCapsLocked = require('./js/is-caps-locked')
 		const copy         = require('./js/copy')
 
 		const polonium     = require('./polonium/polonium').main
-
 
 	</script>
 
@@ -66,13 +64,10 @@
 
 			polonium({
 				salt     : $("#salt")    .val(),
-				password : $("#password").val(),
+				master   : $("#password").val(),
 
 				len      : 20,
-				rounds   : 1000000,
-
-				create   : false,
-				get      : true
+				rounds   : 1000000
 			})
 
 

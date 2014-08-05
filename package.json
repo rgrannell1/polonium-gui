@@ -15,6 +15,7 @@
 		"resizable": false
 	},
 	"dependencies": {
-    	"is"      : "rgrannell1/is"
+    	"is"      : "rgrannell1/is",
+    	"bignum":   "justmoon/node-bignum"
 	}
 }

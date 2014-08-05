@@ -2,8 +2,9 @@
 
 const crypto = require("crypto")
 const log    = console.log
+const bignum = require("bignum")
 
-
+//console.log(require('node-bignumber'))
 
 const convertToCharset = function (str, charset) {
 	/*

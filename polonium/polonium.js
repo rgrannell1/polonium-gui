@@ -15,10 +15,8 @@ const main = function (args) {
 	The main function. Takes arguments from the command line.
 	*/
 
-	console.log(args)
-
 	// -- check that each value has non-zero length.
-	;["salt", "len", "rounds"].map(function (prop) {
+	;["salt", "master", "len", "rounds"].map(function (prop) {
 
 		if (args[prop].len === 0) {
 			log(RangeError("the argument matching '" + prop + "' cannot be length-zero.").toString())
@@ -53,13 +51,16 @@ const main = function (args) {
 		process.exit(1)
 	}
 
-	// -- check whether using the 'get' or 'create' command.
-	const isNewPassword = args.create === true
 
+	const derivedKey = deriveKeys({
+		rounds: parseInt(args.rounds, 10),
+		len :   parseInt(args.len, 10),
 
+		salt :  args.salt,
+		master: args.master
+	})
 
-
-	console.log("this is a string.")
+	log(deriveKeys)
 }
 
 
