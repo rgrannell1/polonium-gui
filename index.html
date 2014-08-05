@@ -13,14 +13,15 @@
 	<link href="css/polo.css" rel="stylesheet" type="text/css">
 
 	<script type="text/javascript">
-		/*
 
+		/*
 			Require dependencies.
 		*/
 
-		const keyCode      = require('./js/key-code')
-		const copy         = require('./js/copy')
-		const polonium     = require('./polonium/polonium').main
+		const keyCode  = require('./js/key-code')
+		const copy     = require('./js/copy')
+		const polonium = require('./polonium/polonium').main
+		const cprocess = require('child_process')
 
 	</script>
 
@@ -28,7 +29,6 @@
 	<body>
 
 	<div class="container">
-
 		<form class="form-main" role="form">
 
 			<!-- The salt input field. -->
@@ -48,9 +48,7 @@
 			<button class="btn btn-lg btn-primary btn-block" type="button" id="get-password" tabindex="3">Get Password</button>
 
 		</form>
-
     </div>
-
 	</body>
 
 	<script type="text/javascript">
@@ -59,36 +57,47 @@
 			Submit Button Code.
 		*/
 
-
 		$("#get-password").click(function () {
 
-			var ref = this
+			const ref = this
 
-			const password = polonium({
-				salt     : $("#salt")    .val(),
-				master   : $("#password").val(),
+			setTimeout(function () {
 
-				len      : 20,
-				rounds   : 1000000
-			})
+				const password = polonium({
+					salt     : $("#salt")    .val(),
+					master   : $("#password").val(),
 
-			alert(password)
+					len      : 20,
+					rounds   : 1000000
+				})
 
-			$(ref)
-			.removeClass("btn-primary")
-			.addClass("btn-success")
-			.text("Copied!")
+				const child = cprocess.exec('echo "' + password + '" | xclip -selection clipboard', function () {
 
-			const pid = setTimeout(function () {
+					$(ref)
+					.removeClass("btn-primary")
+					.addClass("btn-success")
+					.text("Copied!")
 
-				$("#get-password")
-				.removeClass("btn-success")
-				.addClass("btn-primary")
-				.text("Get Password")
+					const pid = setTimeout(function () {
 
-				clearInterval(pid)
+						$("#get-password")
+						.removeClass("btn-success")
+						.addClass("btn-primary")
+						.text("Get Password")
 
-			}, 1250)
+						clearInterval(pid)
+
+					}, 1250)
+
+
+
+				})
+
+			}, 10)
+
+
+
+
 
 
 
