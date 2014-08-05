@@ -57,6 +57,47 @@
 			Submit Button Code.
 		*/
 
+		const toClipboard = function (str, callback) {
+
+			cprocess.exec('echo "' + str + '" | xclip -selection clipboard', callback)
+
+		}
+
+		/*
+			informCopied
+		*/
+
+		const informCopied = function (err, stdout, stderr) {
+
+			if (err) {
+
+				$('#get-password')
+				.removeClass("btn-primary")
+				.addClass("btn-danger")
+				.text("Failed!")
+
+			} else {
+
+				$('#get-password')
+				.removeClass("btn-primary")
+				.addClass("btn-success")
+				.text("Copied!")
+			}
+
+		}
+
+		const pid = setTimeout(function () {
+
+			$("#get-password")
+			.removeClass("btn-success")
+			.removeClass("btn-danger")
+			.addClass("btn-primary")
+			.text("Get Password")
+
+			clearInterval(pid)
+
+		}, 2000)
+
 		$("#get-password").click(function () {
 
 			const ref = this
@@ -71,29 +112,9 @@
 					rounds   : 1000000
 				})
 
-				const child = cprocess.exec('echo "' + password + '" | xclip -selection clipboard', function () {
+				toClipboard(password, informCopied)
 
-					$(ref)
-					.removeClass("btn-primary")
-					.addClass("btn-success")
-					.text("Copied!")
-
-					const pid = setTimeout(function () {
-
-						$("#get-password")
-						.removeClass("btn-success")
-						.addClass("btn-primary")
-						.text("Get Password")
-
-						clearInterval(pid)
-
-					}, 1250)
-
-
-
-				})
-
-			}, 10)
+			}, 0)
 
 
 
