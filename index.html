@@ -19,8 +19,6 @@
 		*/
 
 		const is       = require('is')
-		const keyCode  = require('./js/key-code')
-		const copy     = require('./js/copy')
 		const polonium = require('./polonium/polonium').main
 		const cprocess = require('child_process')
 
@@ -111,15 +109,13 @@
 
 			setTimeout(function () {
 
-				const password = polonium({
-					salt     : $("#salt")    .val(),
+				toClipboard(polonium({
+					salt     : $("#salt"    ).val(),
 					master   : $("#password").val(),
 
 					len      : 20,
 					rounds   : 1000000
-				})
-
-				toClipboard(password, informCopied)
+				}), informCopied)
 
 			}, 0)
 
