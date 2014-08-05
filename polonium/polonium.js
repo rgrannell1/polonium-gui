@@ -51,7 +51,6 @@ const main = function (args) {
 		process.exit(1)
 	}
 
-
 	const derivedKey = deriveKeys({
 		rounds: parseInt(args.rounds, 10),
 		len :   parseInt(args.len, 10),
@@ -60,7 +59,7 @@ const main = function (args) {
 		master: args.master
 	})
 
-	log(deriveKeys)
+	return derivedKey
 }
 
 

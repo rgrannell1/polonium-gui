@@ -20,7 +20,6 @@
 
 		const keyCode      = require('./js/key-code')
 		const copy         = require('./js/copy')
-
 		const polonium     = require('./polonium/polonium').main
 
 	</script>
@@ -60,9 +59,12 @@
 			Submit Button Code.
 		*/
 
+
 		$("#get-password").click(function () {
 
-			polonium({
+			var ref = this
+
+			const password = polonium({
 				salt     : $("#salt")    .val(),
 				master   : $("#password").val(),
 
@@ -70,8 +72,9 @@
 				rounds   : 1000000
 			})
 
+			alert(password)
 
-			$(this)
+			$(ref)
 			.removeClass("btn-primary")
 			.addClass("btn-success")
 			.text("Copied!")
@@ -86,6 +89,8 @@
 				clearInterval(pid)
 
 			}, 1250)
+
+
 
 		})
 
