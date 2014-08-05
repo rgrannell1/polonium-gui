@@ -54,6 +54,12 @@
 
 		/*
 			toClipboard :: string -> function -> undefined
+
+			Copy a string to the clipboard. In this case, copy the new password
+			after it is created.
+
+			linux:
+				xclip.
 		*/
 
 		const toClipboard = function (str, callback) {
@@ -70,6 +76,9 @@
 
 		/*
 			informCopied
+
+			Update the action button to let the user know the text was copied, either
+			successfully or otherwise.
 		*/
 
 		const informCopied = function (err, stdout, stderr) {
@@ -91,17 +100,9 @@
 
 		}
 
-		const pid = setTimeout(function () {
-
-			$("#get-password")
-			.removeClass("btn-success")
-			.removeClass("btn-danger")
-			.addClass("btn-primary")
-			.text("Get Password")
-
-			clearInterval(pid)
-
-		}, 2000)
+		/*
+			button on click event.
+		*/
 
 		$("#get-password").click(function () {
 
@@ -119,9 +120,19 @@
 
 			}, 0)
 
+			/*
+			const pid = setTimeout(function () {
 
+				$("#get-password")
+				.removeClass("btn-success")
+				.removeClass("btn-danger")
+				.addClass("btn-primary")
+				.text("Get Password")
 
+				clearInterval(pid)
 
+			}, 2000)
+			*/
 
 
 
