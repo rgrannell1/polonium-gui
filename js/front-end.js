@@ -87,6 +87,15 @@ const checkFull = function (salt, password) {
 
 }
 
+
+
+
+
+
+
+
+
+
 $("#get-password").click(function () {
 
 	$('#salt', '#password').parent(".input-group").removeClass("has-error")
