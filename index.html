@@ -12,6 +12,7 @@
 
 	<link href="css/polo.css" rel="stylesheet" type="text/css">
 
+
 	<script type="text/javascript">
 
 		/*
@@ -141,8 +142,11 @@
 			button on click event.
 		*/
 
-
 		$("#get-password").click(function () {
+
+			$('#salt'    ).parent(".input-group").removeClass("has-error")
+			$('#password').parent(".input-group").removeClass("has-error")
+			$("#user-prompt").text('')
 
 			const err = validate(
 				$(salt    ).val(),
