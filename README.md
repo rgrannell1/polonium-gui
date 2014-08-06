@@ -1,6 +1,6 @@
 # Polonium GUI
 
-
+<img src="example.gif"> </img>
 
 A node webkit based gui wrapped for polonium.
 
@@ -15,8 +15,10 @@ A node webkit based gui wrapped for polonium.
 ### Installation
 
 
+### Limitations
 
-
+Polonium GUI currently freezes the main thread, as the call to polonium will not
+execute asyncronously.
 
 ### Licence
 
