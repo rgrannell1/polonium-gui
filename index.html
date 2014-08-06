@@ -71,17 +71,38 @@
 				throw 'toClipboard: callback must be a function; actual class was ' + is.what(callback)
 			}
 
-			cprocess.exec('echo "' + str + '" | xclip -selection clipboard', callback)
+			// NOTE:
+			// passing callback to cprocess.exec doesn't execute the callback,
+			// and if xclip is installed the command should always work.
+			// copying is fast, so just run the callback as a standalone block, not
+			// as an argument to exec. (for the moment)
+			cprocess.exec('echo "' + str + '" | xclip -selection clipboard')
+			callback()
+
 		}
 
 		/*
+			resetButton
 
+		*/
+
+		const resetButton = function () {
+
+			$('#get-password')
+			.removeClass('btn-success btn-danger')
+			.addClass('btn-primary')
+			.text('Get Password')
+
+		}
+
+		/*
+			setButton
 
 			Update the action button to let the user know the text was copied, either
 			successfully or otherwise.
 		*/
 
-		const informCopied = function (err, stdout, stderr) {
+		const setButton = function (err, stdout, stderr) {
 
 			if (err) {
 				$('#get-password').removeClass("btn-primary").addClass("btn-danger").text("Failed!")
@@ -89,16 +110,7 @@
 				$('#get-password').removeClass("btn-primary").addClass("btn-success").text("Copied!")
 			}
 
-			const pid = setTimeout(function () {
-
-				$("#get-password")
-				.removeClass("btn-success btn-danger")
-				.addClass("btn-primary")
-				.text("Get Password")
-
-				clearInterval(pid)
-
-			}, 2000)
+			setTimeout(resetButton, 2000)
 		}
 
 		/*
@@ -155,7 +167,7 @@
 
 					len      : 20,
 					rounds   : 1000000
-				}), informCopied )
+				}), setButton)
 
 			}
 		})
