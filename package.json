@@ -6,13 +6,13 @@
 		"position"  : "mouse",
 
 		"width"     : 350,
-		"height"    : 215,
+		"height"    : 235,
 
 		"min_width" : 350,
-		"min_height": 215,
+		"min_height": 235,
 
 		"max_width" : 350,
-		"max_height": 250,
+		"max_height": 235,
 		"frame"     : true,
 
 		"toolbar"   : false,

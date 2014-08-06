@@ -41,7 +41,6 @@
 				<input type="password" class="form-control" id="password" placeholder="Master Password" tabindex="2" maxlength="1024">
 			</div>
 			<span id="user-prompt" class="help-block"></span>
-
 			<!-- A large generate-password button) -->
 
 			<button class="btn btn-lg btn-primary btn-block" type="button" id="get-password" tabindex="3">Get Password</button>
@@ -75,7 +74,7 @@
 		}
 
 		/*
-			informCopied
+
 
 			Update the action button to let the user know the text was copied, either
 			successfully or otherwise.
@@ -112,6 +111,7 @@
 		}
 
 		/*
+			validate
 
 
 		*/
@@ -141,6 +141,7 @@
 			button on click event.
 		*/
 
+
 		$("#get-password").click(function () {
 
 			const err = validate(
@@ -161,13 +162,9 @@
 
 					len      : 20,
 					rounds   : 1000000
-				}), informCopied)
+				}), informCopied )
 
 			}
-
-
-
-
 		})
 
 	</script>
