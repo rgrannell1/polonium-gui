@@ -126,24 +126,47 @@ const checkFull = function (salt, password) {
 
 }
 
+const median = function (nums) {
+
+
+	if (nums.length % 2 === 0) {
+		return nums.sort()[Math.ceil(nums.length / 2)]
+	} else {
+		return nums.sort()[Math.floor(nums.length / 2)] +
+			nums.sort()[Math.ceil(nums.length / 2)] / 2
+	}
+
+}
+
 const timings = {
 	read: function (callback) {
 
 		fs.readFile(constants.timingPath, function (err, contents) {
-			err ? callback([]): callback( JSON.parse(contents.toString()) )
+			err ?
+				callback([]):
+				callback( JSON.parse(contents.toString()) )
 		})
 
 	},
 	write: function (timings) {
 
-		const times = JSON.stringify(timings)
+		const times    = timings.filter(is.number)
+		const expected = median(times)
 
-		fs.writeFile(constants.timingPath, times, function (err) {
+		const timeString = JSON.stringify(times)
+
+		fs.writeFile(constants.timingPath, timeString, function (err) {
 
 		})
 
 	}
 }
+
+/*
+	processDerivedKey
+
+
+*/
 
 const processDerivedKey = function (startTime) {
 	return function (times) {
@@ -153,13 +176,19 @@ const processDerivedKey = function (startTime) {
 
 				setCopyStatus()
 
-				// timings.push(currentTime() - startTime)
+				times.push(currentTime() - startTime)
 				timings.write(times)
 
 			})
 		}
 	}
 }
+
+/*
+	triggerClick
+
+
+*/
 
 const triggerClick = function (timings) {
 
@@ -198,10 +227,3 @@ const triggerClick = function (timings) {
 }
 
 timings.read(triggerClick)
-
-
-
-
-
-
-

@@ -42,9 +42,6 @@ const convertToCharset = function (str, charset) {
 	return digits.join('')
 }
 
-
-
-
 convertToBase62 = function (str) {
 	/*
 	string -> string
