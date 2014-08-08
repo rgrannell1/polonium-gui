@@ -4,7 +4,7 @@ const constants = {
 }
 
 /*
-	toClipboard :: string -> function -> undefined
+	copyText :: string -> function -> undefined
 
 	Copy a string to the clipboard. In this case, copy the new password
 	after it is created.
@@ -13,7 +13,7 @@ const constants = {
 		xclip.
 */
 
-const toClipboard = function (str, callback) {
+const copyText = function (str, callback) {
 
 	// NOTE:
 	// passing callback to cprocess.exec doesn't execute the callback,
@@ -60,7 +60,17 @@ const button = {
 }
 
 /*
-	setButton
+	currentTime
+
+	Get the current UNIX time in milliseconds.
+*/
+
+const currentTime = function () {
+	return (new Date).getTime()
+}
+
+/*
+	setCopyStatus
 
 	Update the action button to let the user know the text was copied, either
 	successfully or otherwise.
@@ -68,11 +78,9 @@ const button = {
 	Only clear the button when the app is focused.
 */
 
-const setButton = function (err, stdout, stderr) {
+const setCopyStatus = function (err, stdout, stderr) {
 
-		$('#get-password')
-		$('#get-password')
-
+	button.deactivate()
 
 	if (err) {
 		button.setFailure("Failed!")
@@ -118,7 +126,7 @@ const checkFull = function (salt, password) {
 
 const writeTimings = function (timings) {
 
-	fs.writeFile(constants.timingPath, JSON.stringify(timings), function (err) {
+	fs.writeFile(constants.timingPath, JSON.stringify(timings), function (err){
 
 		if (err) {
 			throw err
@@ -134,16 +142,32 @@ fs.readFile(constants.timingPath, function (err, contents) {
 	triggerClick(timings)
 })
 
+const processDerivedKey = function (startTime) {
+	return function (timings) {
+		return function (derivedKey) {
+
+			copyText(derivedKey, function () {
+
+				setCopyStatus()
+
+				timings.push(currentTime() - startTime)
+				writeTimings(timings)
+
+			})
+		}
+	}
+}
+
 const triggerClick = function (timings) {
 
 	$("#get-password").click(function () {
 
-		const startTime = (new Date).getTime()
+		const startTime = currentTime()
 
 		$('#salt', '#password').parent(".input-group").removeClass("has-error")
 		$("#user-prompt").text('')
 
-		$('#get-password').addClass('active')
+		button.reactivate()
 
 		const err = checkFull(
 			$('#salt').val(), $('#password').val())
@@ -159,20 +183,11 @@ const triggerClick = function (timings) {
 				salt     : $("#salt"    ).val(),
 				master   : $("#password").val(),
 
+				// -- polonium default arguments.
 				len      : 20,
 				rounds   : 1000000
-			}, function (key) {
-
-				toClipboard(key, function () {
-
-					setButton()
-
-					const endTime = (new Date).getTime()
-					timings.push(endTime - startTime)
-					writeTimings(timings)
-				})
-
-			})
+			},
+			processDerivedKey(startTime)(timings))
 
 		}
 	})
