@@ -62,6 +62,12 @@ const button = {
 		.addClass("btn-success")
 		.text(message)
 
+	},
+	showSpinner: function () {
+		$('#spinner').show()
+	},
+	hideSpinner: function () {
+		$('#spinner').show()
 	}
 }
 
@@ -87,6 +93,7 @@ const currentTime = function () {
 const setCopyStatus = function (err, stdout, stderr) {
 
 	button.deactivate()
+	button.hideSpinner()
 
 	err ? button.setFailure("Failed!"): button.setSuccess("Copied!")
 
@@ -128,7 +135,6 @@ const checkFull = function (salt, password) {
 
 const median = function (nums) {
 
-
 	if (nums.length % 2 === 0) {
 		return nums.sort()[Math.ceil(nums.length / 2)]
 	} else {
@@ -140,18 +146,16 @@ const median = function (nums) {
 
 const timings = {
 	read: function (callback) {
-
 		fs.readFile(constants.timingPath, function (err, contents) {
 			err ?
 				callback([]):
 				callback( JSON.parse(contents.toString()) )
 		})
-
 	},
 	write: function (timings) {
 
-		const times    = timings.filter(is.number)
-		const expected = median(times)
+		const times      = timings.filter(is.number)
+		const expected   = median(times)
 
 		const timeString = JSON.stringify(times)
 
@@ -211,6 +215,8 @@ const triggerClick = function (timings) {
 
 		} else {
 
+			button.showSpinner()
+
 			polonium({
 				salt     : $("#salt"    ).val(),
 				master   : $("#password").val(),
@@ -227,3 +233,6 @@ const triggerClick = function (timings) {
 }
 
 timings.read(triggerClick)
+
+
+// toggleClass

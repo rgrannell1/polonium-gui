@@ -1,1 +1,1 @@
-.input-group:nth-child(2){margin-bottom:10px}.input-group{width:100%}#user-prompt{color:#b94a48}html{padding:40px}
+.input-group:nth-child(2){margin-bottom:10px}.input-group{width:100%}#user-prompt{color:#b94a48}html{padding:40px}#spinner{display:none}#spinner.active{display:inline-block}
