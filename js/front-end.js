@@ -137,9 +137,7 @@ const checkFull = function (salt, password) {
 */
 
 const processDerivedKey = function (derivedKey) {
-	copyText(derivedKey, function () {
-		setCopyStatus()
-	})
+	copyText(derivedKey, setCopyStatus)
 }
 
 /*
