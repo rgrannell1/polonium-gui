@@ -1,4 +1,8 @@
 
+const constants = {
+	timingPath: './data/timing.json'
+}
+
 /*
 	toClipboard :: string -> function -> undefined
 
@@ -38,7 +42,7 @@ const toClipboard = function (str, callback) {
 const resetButton = function () {
 
 	$('#get-password')
-	.removeClass('btn-success btn-danger')
+	.removeClass('btn-success btn-danger active')
 	.addClass('btn-primary')
 	.text('Get Password')
 
@@ -49,6 +53,8 @@ const resetButton = function () {
 
 	Update the action button to let the user know the text was copied, either
 	successfully or otherwise.
+
+	Only clear the button when the app is focused.
 */
 
 const setButton = function (err, stdout, stderr) {
@@ -95,32 +101,44 @@ const checkFull = function (salt, password) {
 
 }
 
+const writeTimings = function (timings) {
 
+	fs.writeFile(constants.timingPath, JSON.stringify(timings), function (err) {
 
+		if (err) {
+			throw err
+		}
 
+	})
+}
 
+fs.readFile(constants.timingPath, function (err, contents) {
 
+	const timings = JSON.parse(contents.toString())
 
+	triggerClick(timings)
+})
 
+const triggerClick = function (timings) {
 
-$("#get-password").click(function () {
+	$("#get-password").click(function () {
 
-	$('#salt', '#password').parent(".input-group").removeClass("has-error")
-	$("#user-prompt").text('')
+		const startTime = (new Date).getTime()
 
-	const err = checkFull(
-		$('#salt'    ).val(),
-		$('#password').val()
-	)
+		$('#salt', '#password').parent(".input-group").removeClass("has-error")
+		$("#user-prompt").text('')
 
-	if (err) {
+		$('#get-password').addClass('active')
 
-		$(err.input).parent(".input-group").addClass("has-error")
-		$("#user-prompt").text(err.message)
+		const err = checkFull(
+			$('#salt').val(), $('#password').val())
 
-	} else {
+		if (err) {
 
-		setTimeout(function () {
+			$(err.input).parent(".input-group").addClass("has-error")
+			$("#user-prompt").text(err.message)
+
+		} else {
 
 			polonium({
 				salt     : $("#salt"    ).val(),
@@ -130,11 +148,26 @@ $("#get-password").click(function () {
 				rounds   : 1000000
 			}, function (key) {
 
-				toClipboard(key, setButton)
+				toClipboard(key, function () {
+
+					setButton()
+
+					const endTime = (new Date).getTime()
+					const elapsed = endTime - startTime
+
+					timings.push(elapsed)
+					writeTimings(timings)
+				})
 
 			})
 
-		}, 50)
+		}
+	})
 
-	}
-})
+}
+
+
+
+
+
+
