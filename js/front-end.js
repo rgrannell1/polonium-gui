@@ -39,12 +39,16 @@ const button = {
 	deactivate: function () {
 		$('#get-password').removeClass('active')
 	},
-	setPrimary: function () {
+	setPrimary: function (message) {
+
+		if (!message) {
+			message = 'Get Password'
+		}
 
 		$('#get-password')
 		.removeClass('btn-success btn-danger')
 		.addClass('btn-primary')
-		.text('Get Password')
+		.text(message)
 
 	},
 	setFailure: function (message) {
@@ -62,12 +66,6 @@ const button = {
 		.addClass("btn-success")
 		.text(message)
 
-	},
-	showSpinner: function () {
-		$('#spinner').show()
-	},
-	hideSpinner: function () {
-		$('#spinner').show()
 	}
 }
 
@@ -93,7 +91,6 @@ const currentTime = function () {
 const setCopyStatus = function (err, stdout, stderr) {
 
 	button.deactivate()
-	button.hideSpinner()
 
 	err ? button.setFailure("Failed!"): button.setSuccess("Copied!")
 
@@ -133,59 +130,16 @@ const checkFull = function (salt, password) {
 
 }
 
-const median = function (nums) {
-
-	if (nums.length % 2 === 0) {
-		return nums.sort()[Math.ceil(nums.length / 2)]
-	} else {
-		return nums.sort()[Math.floor(nums.length / 2)] +
-			nums.sort()[Math.ceil(nums.length / 2)] / 2
-	}
-
-}
-
-const timings = {
-	read: function (callback) {
-		fs.readFile(constants.timingPath, function (err, contents) {
-			err ?
-				callback([]):
-				callback( JSON.parse(contents.toString()) )
-		})
-	},
-	write: function (timings) {
-
-		const times      = timings.filter(is.number)
-		const expected   = median(times)
-
-		const timeString = JSON.stringify(times)
-
-		fs.writeFile(constants.timingPath, timeString, function (err) {
-
-		})
-
-	}
-}
-
 /*
 	processDerivedKey
 
 
 */
 
-const processDerivedKey = function (startTime) {
-	return function (times) {
-		return function (derivedKey) {
-
-			copyText(derivedKey, function () {
-
-				setCopyStatus()
-
-				times.push(currentTime() - startTime)
-				timings.write(times)
-
-			})
-		}
-	}
+const processDerivedKey = function (derivedKey) {
+	copyText(derivedKey, function () {
+		setCopyStatus()
+	})
 }
 
 /*
@@ -194,45 +148,40 @@ const processDerivedKey = function (startTime) {
 
 */
 
-const triggerClick = function (timings) {
 
-	$("#get-password").click(function () {
+$("#get-password").click(function () {
 
-		const startTime = currentTime()
+	const startTime = currentTime()
 
-		$('#salt', '#password').parent(".input-group").removeClass("has-error")
-		$("#user-prompt").text('')
+	$('#salt', '#password').parent(".input-group").removeClass("has-error")
+	$("#user-prompt").text('')
 
-		button.reactivate()
+	button.reactivate()
 
-		const err = checkFull(
-			$('#salt').val(), $('#password').val())
+	const err = checkFull(
+		$('#salt').val(), $('#password').val())
 
-		if (err) {
+	if (err) {
 
-			$(err.input).parent(".input-group").addClass("has-error")
-			$("#user-prompt").text(err.message)
+		$(err.input).parent(".input-group").addClass("has-error")
+		$("#user-prompt").text(err.message)
 
-		} else {
+	} else {
 
-			button.showSpinner()
+		button.setPrimary('Retrieving...')
 
-			polonium({
-				salt     : $("#salt"    ).val(),
-				master   : $("#password").val(),
+		polonium({
+			salt     : $("#salt"    ).val(),
+			master   : $("#password").val(),
 
-				// -- polonium default arguments.
-				len      : 20,
-				rounds   : 1000000
-			},
-			processDerivedKey(startTime)(timings))
+			// -- polonium default arguments.
+			len      : 20,
+			rounds   : 1000000
+		},
+		processDerivedKey)
 
-		}
-	})
-
-}
-
-timings.read(triggerClick)
+	}
+})
 
 
 // toggleClass
