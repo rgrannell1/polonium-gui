@@ -26,6 +26,12 @@ const copyText = function (str, callback) {
 
 }
 
+/*
+	button
+
+	Methods for interacting with the user button.
+*/
+
 const button = {
 	reactivate: function () {
 		$('#get-password').addClass('active')
@@ -82,11 +88,7 @@ const setCopyStatus = function (err, stdout, stderr) {
 
 	button.deactivate()
 
-	if (err) {
-		button.setFailure("Failed!")
-	} else {
-		button.setSuccess("Copied!")
-	}
+	err ? button.setFailure("Failed!"): button.setSuccess("Copied!")
 
 	const pid = setInterval(function () {
 
@@ -124,34 +126,35 @@ const checkFull = function (salt, password) {
 
 }
 
-const writeTimings = function (timings) {
+const timings = {
+	read: function (callback) {
 
-	fs.writeFile(constants.timingPath, JSON.stringify(timings), function (err){
+		fs.readFile(constants.timingPath, function (err, contents) {
+			err ? callback([]): callback( JSON.parse(contents.toString()) )
+		})
 
-		if (err) {
-			throw err
-		}
+	},
+	write: function (timings) {
 
-	})
+		const times = JSON.stringify(timings)
+
+		fs.writeFile(constants.timingPath, times, function (err) {
+
+		})
+
+	}
 }
 
-fs.readFile(constants.timingPath, function (err, contents) {
-
-	const timings = JSON.parse(contents.toString())
-
-	triggerClick(timings)
-})
-
 const processDerivedKey = function (startTime) {
-	return function (timings) {
+	return function (times) {
 		return function (derivedKey) {
 
 			copyText(derivedKey, function () {
 
 				setCopyStatus()
 
-				timings.push(currentTime() - startTime)
-				writeTimings(timings)
+				// timings.push(currentTime() - startTime)
+				timings.write(times)
 
 			})
 		}
@@ -193,6 +196,9 @@ const triggerClick = function (timings) {
 	})
 
 }
+
+timings.read(triggerClick)
+
 
 
 
