@@ -115,13 +115,17 @@ $("#get-password").click(function () {
 
 		setTimeout(function () {
 
-			toClipboard(polonium({
+			polonium({
 				salt     : $("#salt"    ).val(),
 				master   : $("#password").val(),
 
 				len      : 20,
 				rounds   : 1000000
-			}), setButton)
+			}, function (key) {
+
+				toClipboard(key, setButton)
+
+			})
 
 		}, 50)
 

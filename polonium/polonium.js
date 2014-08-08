@@ -10,7 +10,7 @@ const log         = console.log
 
 
 
-const main = function (args) {
+const main = function (args, callback) {
 	/*
 	The main function. Takes arguments from the command line.
 	*/
@@ -51,15 +51,15 @@ const main = function (args) {
 		process.exit(1)
 	}
 
-	const derivedKey = deriveKeys({
+	deriveKeys({
 		rounds: parseInt(args.rounds, 10),
 		len :   parseInt(args.len, 10),
 
 		salt :  args.salt,
-		master: args.master
-	})
+		master: args.master,
 
-	return derivedKey
+		callback: callback
+	})
 }
 
 

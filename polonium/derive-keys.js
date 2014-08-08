@@ -75,26 +75,30 @@ const deriveKeys = function (args) {
 	an overestimation.
 	*/
 
-	const bits = 6 * args.len
+	const bits     = 6 * args.len
+	const callback = args.callback
 
 	// -- the length 'bits' gives the nubmer of bits.
-	digested  = crypto.pbkdf2Sync(
+	crypto.pbkdf2(
 		args.master,
 		args.salt,
 		args.rounds,
-		bits
+		bits,
+		function (err, key) {
+
+			converted =
+				convertToBase62(key.toString())
+				.slice(0, args.len)
+
+			if (args.len !== converted.length) {
+				log(RangeError('base62-conversion failed; the output string had incorrect length.'.red).toString())
+				process.exit(1)
+			}
+
+			callback(converted)
+		}
 	)
 
-	converted =
-		convertToBase62(digested.toString())
-		.slice(0, args.len)
-
-	if (args.len !== converted.length) {
-		log(RangeError('base62-conversion failed; the output string had incorrect length.'.red).toString())
-		process.exit(1)
-	}
-
-	return converted
 }
 
 
