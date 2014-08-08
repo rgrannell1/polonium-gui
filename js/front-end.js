@@ -59,7 +59,15 @@ const setButton = function (err, stdout, stderr) {
 		$('#get-password').removeClass("btn-primary").addClass("btn-success").text("Copied!")
 	}
 
-	setTimeout(resetButton, 2000)
+	const pid = setInterval(function () {
+
+		if (document.hasFocus()) {
+			setTimeout(resetButton, 1950)
+			clearInterval(pid)
+		}
+
+	}, 50)
+
 }
 
 /*
@@ -86,7 +94,6 @@ const checkFull = function (salt, password) {
 	}
 
 }
-
 
 
 
