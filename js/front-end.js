@@ -1,6 +1,6 @@
 
 const constants = {
-	timingPath: './data/timing.json'
+	timingPath: '/home/ryan/Code/polonium-gui/data/timing.json'
 }
 
 /*
@@ -15,13 +15,6 @@ const constants = {
 
 const toClipboard = function (str, callback) {
 
-	if (!is.string(str)) {
-		throw 'toClipboard: str must be a string; actual class was ' + is.what(str)
-	}
-	if (!is.function(callback)) {
-		throw 'toClipboard: callback must be a function; actual class was ' + is.what(callback)
-	}
-
 	// NOTE:
 	// passing callback to cprocess.exec doesn't execute the callback,
 	// and if xclip is installed the command should always work.
@@ -33,19 +26,37 @@ const toClipboard = function (str, callback) {
 
 }
 
-/*
-	resetButton
+const button = {
+	reactivate: function () {
+		$('#get-password').addClass('active')
+	},
+	deactivate: function () {
+		$('#get-password').removeClass('active')
+	},
+	setPrimary: function () {
 
-	set the big action button back to its original state.d
-*/
+		$('#get-password')
+		.removeClass('btn-success btn-danger')
+		.addClass('btn-primary')
+		.text('Get Password')
 
-const resetButton = function () {
+	},
+	setFailure: function (message) {
 
-	$('#get-password')
-	.removeClass('btn-success btn-danger active')
-	.addClass('btn-primary')
-	.text('Get Password')
+		$('#get-password')
+		.removeClass("btn-primary btn-danger")
+		.addClass("btn-success")
+		.text(message)
 
+	},
+	setSuccess: function (message) {
+
+		$('#get-password')
+		.removeClass("btn-primary btn-danger")
+		.addClass("btn-success")
+		.text(message)
+
+	}
 }
 
 /*
@@ -59,16 +70,20 @@ const resetButton = function () {
 
 const setButton = function (err, stdout, stderr) {
 
+		$('#get-password')
+		$('#get-password')
+
+
 	if (err) {
-		$('#get-password').removeClass("btn-primary").addClass("btn-danger").text("Failed!")
+		button.setFailure("Failed!")
 	} else {
-		$('#get-password').removeClass("btn-primary").addClass("btn-success").text("Copied!")
+		button.setSuccess("Copied!")
 	}
 
 	const pid = setInterval(function () {
 
 		if (document.hasFocus()) {
-			setTimeout(resetButton, 1950)
+			setTimeout(button.setPrimary, 1950)
 			clearInterval(pid)
 		}
 
@@ -153,9 +168,7 @@ const triggerClick = function (timings) {
 					setButton()
 
 					const endTime = (new Date).getTime()
-					const elapsed = endTime - startTime
-
-					timings.push(elapsed)
+					timings.push(endTime - startTime)
 					writeTimings(timings)
 				})
 
