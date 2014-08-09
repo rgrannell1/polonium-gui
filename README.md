@@ -1,8 +1,8 @@
 # Polonium GUI
 
-<img src="example.gif"> </img>
+<img src="example.png"> </img>
 
-A node webkit based gui wrapped for polonium.
+A node-webkit gui for [Polonium](https://github.com/rgrannell1/polonium), a stateless password manager.
 
 ### Requirements
 
@@ -13,6 +13,24 @@ A node webkit based gui wrapped for polonium.
 * Bignum
 
 ### Installation
+
+#### - Dependencies
+
+
+To install node.js on Ubuntu use
+
+```
+sudo add-apt-repository ppa:chris-lea/node.js
+sudo apt-get update
+sudo apt-get install nodejs
+```
+
+Polonium depends on the following libraries:
+
+```
+sudo npm install -g bignum
+```
+
 
 
 ### Limitations
