@@ -39,6 +39,9 @@ const button = {
 	deactivate: function () {
 		$('#get-password').removeClass('active')
 	},
+	isActive: function () {
+		return $('#get-password').hasClass('active')
+	},
 	setPrimary: function (message) {
 
 		if (!message) {
@@ -66,6 +69,36 @@ const button = {
 		.addClass("btn-success")
 		.text(message)
 
+	}
+}
+
+const userSalt = {
+	val: function () {
+		return $('#salt').val()
+	},
+	isEmpty: function () {
+		return this.val().length === 0
+	},
+	setFailure: function () {
+		$('#salt').parent('.input-group').addClass('has-error')
+	},
+	unsetFailure: function () {
+		$('#salt').parent('.input-group').removeClass('has-error')
+	}
+}
+
+const userPassword = {
+	val: function () {
+		return $('#password').val()
+	},
+	isEmpty: function () {
+		return this.val().length === 0
+	},
+	setFailure: function () {
+		$('#password').parent('.input-group').addClass('has-error')
+	},
+	unsetFailure: function () {
+		$('#password').parent('.input-group').removeClass('has-error')
 	}
 }
 
@@ -97,7 +130,7 @@ const setCopyStatus = function (err, stdout, stderr) {
 	const pid = setInterval(function () {
 
 		if (document.hasFocus()) {
-			setTimeout(button.setPrimary, 1950)
+			setTimeout(button.setPrimary, 2450)
 			clearInterval(pid)
 		}
 
@@ -149,9 +182,15 @@ const processDerivedKey = function (derivedKey) {
 
 $("#get-password").click(function () {
 
+	if (button.isActive()) {
+		return
+	}
+
 	const startTime = currentTime()
 
-	$('#salt', '#password').parent(".input-group").removeClass("has-error")
+	userSalt.unsetFailure()
+	userPassword.unsetFailure()
+
 	$("#user-prompt").text('')
 
 	button.reactivate()
@@ -179,6 +218,7 @@ $("#get-password").click(function () {
 		processDerivedKey)
 
 	}
+
 })
 
 
