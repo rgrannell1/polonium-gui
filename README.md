@@ -1,4 +1,4 @@
-# Polonium GUI
+# Polonium (GUI) V0.2.0
 
 <img src="example.png"> </img>
 
