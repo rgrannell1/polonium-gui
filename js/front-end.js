@@ -1,6 +1,9 @@
 
 const constants = {
-	timingPath: '/home/ryan/Code/polonium-gui/data/timing.json'
+	timingPath:    '/home/ryan/Code/polonium-gui/data/timing.json',
+	butonResetMs : 1950,
+	defaultRounds: 1000000,
+	defaultLength: 20
 }
 
 /*
@@ -25,6 +28,11 @@ const copyText = function (str, callback) {
 	callback()
 
 }
+
+
+
+
+
 
 /*
 	button
@@ -72,6 +80,15 @@ const button = {
 	}
 }
 
+
+
+
+/*
+	userSalt
+
+	Methods for interacting with the user salt box.
+*/
+
 const userSalt = {
 	val: function () {
 		return $('#salt').val()
@@ -86,6 +103,15 @@ const userSalt = {
 		$('#salt').parent('.input-group').removeClass('has-error')
 	}
 }
+
+
+
+
+/*
+	userPassword
+
+	Methods for interacting with the user password box.
+*/
 
 const userPassword = {
 	val: function () {
@@ -103,17 +129,7 @@ const userPassword = {
 }
 
 /*
-	currentTime
-
-	Get the current UNIX time in milliseconds.
-*/
-
-const currentTime = function () {
-	return (new Date).getTime()
-}
-
-/*
-	setCopyStatus
+	setCopyStatus :: Error -> undefined
 
 	Update the action button to let the user know the text was copied, either
 	successfully or otherwise.
@@ -121,16 +137,20 @@ const currentTime = function () {
 	Only clear the button when the app is focused.
 */
 
-const setCopyStatus = function (err, stdout, stderr) {
+const setCopyStatus = function (err) {
 
+	// the button is no longer active, since copying is finished.
 	button.deactivate()
 
 	err ? button.setFailure("Failed!"): button.setSuccess("Copied!")
 
+	// reset the button back to its starting state after a set amount
+	// of time, and wait for the user to bring the app back into focus
+	// before starting the timout.
 	const pid = setInterval(function () {
 
 		if (document.hasFocus()) {
-			setTimeout(button.setPrimary, 2450)
+			setTimeout(button.setPrimary, constants.butonResetMs)
 			clearInterval(pid)
 		}
 
@@ -164,39 +184,32 @@ const checkFull = function (salt, password) {
 }
 
 /*
-	processDerivedKey
+	copyKey :: string -> undefined
 
-
+	copyKey takes the key produced by polonium, copies it to the
+	clipboard, and updates the button status to inform of this.
 */
 
-const processDerivedKey = function (derivedKey) {
+const copyKey = function (derivedKey) {
 	copyText(derivedKey, setCopyStatus)
 }
 
-/*
-	triggerClick
-
-
-*/
-
-
 $("#get-password").click(function () {
 
+	// currently calling polonium; don't rerun till it's finished.
 	if (button.isActive()) {
 		return
 	}
 
-	const startTime = currentTime()
-
-	userSalt.unsetFailure()
+	// unset any user error prompts prior to error-checking again.
+	userSalt    .unsetFailure()
 	userPassword.unsetFailure()
 
 	$("#user-prompt").text('')
 
-	button.reactivate()
-
 	const err = checkFull(
-		$('#salt').val(), $('#password').val())
+		$('#salt')    .val(),
+		$('#password').val())
 
 	if (err) {
 
@@ -205,17 +218,21 @@ $("#get-password").click(function () {
 
 	} else {
 
+		// set the button to active.
+		button.reactivate()
 		button.setPrimary('Retrieving...')
 
+		// asyncronously call polonium, copy the key
+		// as a callback.
 		polonium({
-			salt     : $("#salt"    ).val(),
-			master   : $("#password").val(),
+			salt  : $("#salt"    ).val(),
+			master: $("#password").val(),
 
 			// -- polonium default arguments.
-			len      : 20,
-			rounds   : 1000000
+			len   : constants.defaultLength,
+			rounds: constants.defaultRounds
 		},
-		processDerivedKey)
+		copyKey)
 
 	}
 
