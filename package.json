@@ -1,25 +1,26 @@
 {
-	"name": "polonium-gui",
-	"main": "index.html",
-	"window": {
-		"title"     : "Polonium",
-		"position"  : "mouse",
-
-		"width"     : 350,
-		"height"    : 235,
-
-		"min_width" : 350,
-		"min_height": 235,
-
-		"max_width" : 350,
-		"max_height": 235,
-		"frame"     : true,
-
-		"toolbar"   : false,
-		"resizable" : false
-	},
-	"dependencies": {
-    	"is"      : "rgrannell1/is",
-    	"bignum":   "justmoon/node-bignum"
-	}
+  "name": "polonium-gui",
+  "main": "index.html",
+  "window": {
+    "title": "Polonium",
+    "position": "mouse",
+    "width": 350,
+    "height": 235,
+    "min_width": 350,
+    "min_height": 235,
+    "max_width": 350,
+    "max_height": 235,
+    "frame": true,
+    "toolbar": false,
+    "resizable": false,
+    "icon": "icon.png"
+  },
+  "dependencies": {
+    "is": "rgrannell1/is",
+    "bignum": "justmoon/node-bignum"
+  },
+  "devDependencies": {
+    "grunt": "^0.4.5",
+    "grunt-node-webkit-builder": "^0.2.1"
+  }
 }
