@@ -17,8 +17,8 @@
    inkscape:version="0.48.4 r9939"
    sodipodi:docname="icon.svg"
    inkscape:export-filename="/home/ryan/Code/polonium-gui/icon.png"
-   inkscape:export-xdpi="90"
-   inkscape:export-ydpi="90">
+   inkscape:export-xdpi="45"
+   inkscape:export-ydpi="45">
   <defs
      id="defs4">
     <linearGradient
@@ -62,8 +62,8 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="0.803091"
-     inkscape:cx="-100.89076"
-     inkscape:cy="278.75445"
+     inkscape:cx="44.73623"
+     inkscape:cy="218.13555"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -126,7 +126,7 @@
        ry="119.67741" />
     <text
        xml:space="preserve"
-       style="font-size:824.41534423999985393px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-indent:0;text-align:start;text-decoration:none;line-height:125%;letter-spacing:0px;word-spacing:0px;text-transform:none;direction:ltr;block-progression:tb;writing-mode:lr-tb;text-anchor:start;baseline-shift:baseline;color:#000000;fill:#8c0038;fill-opacity:1;fill-rule:nonzero;stroke:none;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate;font-family:Bitstream Charter;-inkscape-font-specification:Bitstream Charter"
+       style="font-size:824.41534423999985393px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-indent:0;text-align:start;text-decoration:none;line-height:125%;letter-spacing:0px;word-spacing:0px;text-transform:none;direction:ltr;block-progression:tb;writing-mode:lr-tb;text-anchor:start;baseline-shift:baseline;color:#000000;fill:#767676;fill-opacity:1;fill-rule:nonzero;stroke:none;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate;font-family:Bitstream Charter;-inkscape-font-specification:Bitstream Charter"
        x="53.128002"
        y="1205.3683"
        id="text2985"
@@ -138,17 +138,17 @@
          y="1205.3683">*</tspan></text>
     <g
        transform="scale(0.98766886,1.0124851)"
-       style="font-size:824.41534423999985393px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-indent:0;text-align:start;text-decoration:none;line-height:125%;letter-spacing:0px;word-spacing:0px;text-transform:none;direction:ltr;block-progression:tb;writing-mode:lr-tb;text-anchor:start;baseline-shift:baseline;color:#000000;fill:#fcaa2d;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:1;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate;font-family:Bitstream Charter;-inkscape-font-specification:Bitstream Charter"
+       style="font-size:824.41534423999985393px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-indent:0;text-align:start;text-decoration:none;line-height:125%;letter-spacing:0px;word-spacing:0px;text-transform:none;direction:ltr;block-progression:tb;writing-mode:lr-tb;text-anchor:start;baseline-shift:baseline;color:#000000;fill:#2eb0d0;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:1;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate;font-family:Bitstream Charter;-inkscape-font-specification:Bitstream Charter"
        id="text2985-3">
       <path
          d="m 259.23184,611.04415 -32.1522,50.28933 26.38129,103.05192 11.54182,0 26.38129,-103.05192 -32.1522,-50.28933 m 104.70075,106.34958 -89.03686,56.88466 3.29766,10.7174 105.52517,-6.59533 37.9231,-46.16726 -57.70907,-14.83947 m -91.51011,80.7927 -9.06857,5.77091 38.74753,98.92984 55.23582,21.4348 -3.29766,-59.35791 -81.61712,-66.77764 m -26.38129,0 -82.44153,66.77764 -3.29766,59.35791 55.23582,-20.61038 38.74753,-99.75426 -8.24416,-5.77091 m -91.5101,-80.7927 -56.884659,14.83947 37.098689,46.16726 106.34958,6.59533 3.29766,-9.89299 -89.86127,-57.70907"
-         style="marker:none;fill:#fcaa2d;fill-opacity:1"
+         style="marker:none;fill:#2eb0d0;fill-opacity:1"
          id="path3063" />
     </g>
     <path
        inkscape:connector-curvature="0"
        d="m 256.03522,618.6731 -31.75573,50.9172 26.05598,104.33853 11.39949,0 26.05598,-104.33853 -31.75572,-50.9172 m 13.02798,189.47877 -8.95674,5.84296 38.26973,100.16499 54.5547,21.70242 -3.257,-60.099 -80.61069,-67.61137 m -26.05598,0 -81.42493,67.61137 -3.257,60.099 54.5547,-20.86771 38.26973,-100.9997 -8.1425,-5.84296"
-       style="font-size:824.41534423999985393px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-indent:0;text-align:start;text-decoration:none;line-height:125%;letter-spacing:0px;word-spacing:0px;text-transform:none;direction:ltr;block-progression:tb;writing-mode:lr-tb;text-anchor:start;baseline-shift:baseline;color:#000000;fill:#ff0066;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:1;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate;font-family:Bitstream Charter;-inkscape-font-specification:Bitstream Charter"
+       style="font-size:824.41534423999985393px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-indent:0;text-align:start;text-decoration:none;line-height:125%;letter-spacing:0px;word-spacing:0px;text-transform:none;direction:ltr;block-progression:tb;writing-mode:lr-tb;text-anchor:start;baseline-shift:baseline;color:#000000;fill:#2a2a2a;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:1;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate;font-family:Bitstream Charter;-inkscape-font-specification:Bitstream Charter"
        id="path3063-2"
        sodipodi:nodetypes="cccccccccccccccccc" />
   </g>
