@@ -1,3 +1,5 @@
+
+<img src="icon.png" width="100"/> 
 # Polonium (GUI) V0.2.0
 
 <img src="example.png"> </img>
