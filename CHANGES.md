@@ -1,6 +1,32 @@
+
 Polonium-GUI v0.2.0
 ------------------------------------------------------------------------------
-Date: 2014-7-9
+Date: 2014-8-15
+
+ENHANCEMENTS:
+
+* Added a script that can run polonium-gui from the app launcher, and the desktop script
+required for this.
+
+BUG-FIXES:
+
+* Errors created by polonium are now flagged by a red button.
+
+* Fixed a race condition where clicking immediately after text is copied would
+reset the text to 'Get Password' while awaiting new results. Closes #2
+
+* Fixed a bug in which an error produced by polonium was allowed to fail unhandled,
+closing #3.
+
+
+
+
+
+
+
+Polonium-GUI v0.2.0
+------------------------------------------------------------------------------
+Date: 2014-8-9
 
 ENHANCEMENTS:
 
@@ -23,4 +49,4 @@ multiple times.
 
 Polonium-GUI v0.1.0
 ------------------------------------------------------------------------------
-Date: 2014-7-7
+Date: 2014-8-7
