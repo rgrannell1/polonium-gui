@@ -150,7 +150,13 @@ const setCopyStatus = function (err) {
 	const pid = setInterval(function () {
 
 		if (document.hasFocus()) {
-			setTimeout(button.setPrimary, constants.butonResetMs)
+			setTimeout(function () {
+
+				if (!button.isActive()) {
+					button.setPrimary()
+				}
+
+			}, constants.butonResetMs)
 			clearInterval(pid)
 		}
 

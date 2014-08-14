@@ -1,9 +1,11 @@
-Version=0.1.0
-Name=Polonium Gui
-GenericName=Polonium Gui
-Comment=Stateless password manager.
-Exec=~/polonium-gui/execute.sh
-Terminal=false
-Icon=~/polonium-gui/icon.png
+[Desktop Entry]
+Version=1.0
 Type=Application
-Categories=Utility;
+Name=Polonium
+Comment=Stateless password manager.
+Icon=/home/ryan/polonium-gui/icon.png
+Exec=/home/ryan/polonium-gui/execute.sh
+NoDisplay=false
+Categories=System-Tools;
+StartupNotify=true
+Terminal=false

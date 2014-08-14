@@ -1,5 +1,5 @@
 
-<img src="icon.png" width="100"/> 
+<img src="icon.png" width="100"/>
 # Polonium (GUI) V0.2.0
 
 <img src="example.png"> </img>
@@ -16,29 +16,30 @@ A node-webkit gui for [Polonium](https://github.com/rgrannell1/polonium), a stat
 
 ### Installation
 
-#### - Dependencies
+Polonium-GUI is not particularily easy to install on Ubuntu, as certain packages required by node-webkit are unavailable.
 
+#### - Dependencies
 
 To install node.js on Ubuntu use
 
-```
+```bash
 sudo add-apt-repository ppa:chris-lea/node.js
 sudo apt-get update
 sudo apt-get install nodejs
 ```
 
-Polonium depends on the following libraries:
+### - Polonium GUI
 
+To add a launcher icon
+
+```bash
+sudo cat ~/polonium-gui/launcher.txt >> ~/.local/share/applications/polonium.desktop
 ```
-sudo npm install -g bignum
-```
+
+You may need to restart your session by hitting <kbd>Alt + F2</kbd> and entering 'r'.
 
 
 
-### Limitations
-
-Polonium GUI currently freezes the main thread, as the call to polonium will not
-execute asyncronously.
 
 ### Licence
 
