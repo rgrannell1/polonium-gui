@@ -88,11 +88,10 @@ const deriveKeys = function (args) {
 				.slice(0, args.len)
 
 			if (args.len !== converted.length) {
-				log(RangeError('base62-conversion failed; the output string had incorrect length.'.red).toString())
-				process.exit(1)
+				callback(RangeError('base62-conversion failed; the output string had incorrect length.'), '')
 			}
 
-			callback(converted)
+			callback(null, converted)
 		}
 	)
 

@@ -65,8 +65,8 @@ const button = {
 	setFailure: function (message) {
 
 		$('#get-password')
-		.removeClass("btn-primary btn-danger")
-		.addClass("btn-success")
+		.removeClass("btn-primary btn-success")
+		.addClass("btn-danger")
 		.text(message)
 
 	},
@@ -137,12 +137,11 @@ const userPassword = {
 	Only clear the button when the app is focused.
 */
 
-const setCopyStatus = function (err) {
-
+const setCopyStatus = function (deriveErr) {
 	// the button is no longer active, since copying is finished.
 	button.deactivate()
 
-	err ? button.setFailure("Failed!"): button.setSuccess("Copied!")
+	!!deriveErr ? button.setFailure("Failed!"): button.setSuccess("Copied!")
 
 	// reset the button back to its starting state after a set amount
 	// of time, and wait for the user to bring the app back into focus
@@ -196,9 +195,13 @@ const checkFull = function (salt, password) {
 	clipboard, and updates the button status to inform of this.
 */
 
-const copyKey = function (derivedKey) {
-	copyText(derivedKey, setCopyStatus)
+const copyKey = function (deriveError, derivedKey) {
+	copyText( derivedKey, function () {setCopyStatus(deriveError)} )
 }
+
+
+
+
 
 $("#get-password").click(function () {
 
