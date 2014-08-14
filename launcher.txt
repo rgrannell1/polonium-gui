@@ -1,0 +1,9 @@
+Version=0.1.0
+Name=Polonium Gui
+GenericName=Polonium Gui
+Comment=Stateless password manager.
+Exec=~/polonium-gui/execute.sh
+Terminal=false
+Icon=~/polonium-gui/icon.png
+Type=Application
+Categories=Utility;
