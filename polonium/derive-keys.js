@@ -28,7 +28,8 @@ const convertToCharset = function (str, charset) {
 	}
 
 	var digits = []
-	num = bignum(str)
+
+	num     = bignum(str, 16)
 	charset = charset.split('')
 
 	while (num.gt(0)) {
@@ -84,7 +85,7 @@ const deriveKeys = function (args) {
 		function (err, key) {
 
 			converted =
-				convertToBase62(key.toString())
+				convertToBase62(key.toString('hex'))
 				.slice(0, args.len)
 
 			if (args.len !== converted.length) {

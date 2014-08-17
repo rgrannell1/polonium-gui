@@ -18,9 +18,5 @@
   "dependencies": {
     "is": "rgrannell1/is",
     "bignum": "justmoon/node-bignum"
-  },
-  "devDependencies": {
-    "grunt": "^0.4.5",
-    "grunt-node-webkit-builder": "^0.2.1"
   }
 }
