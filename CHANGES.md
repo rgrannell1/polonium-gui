@@ -1,5 +1,23 @@
 
-Polonium-GUI v0.2.0
+Polonium-GUI v0.3.1
+------------------------------------------------------------------------------
+Date: 2014-8-18
+
+
+BUG-FIXES:
+
+* Fixed a long-outstanding security issue in Polonium. Approximately
+11% of salt-password pairs could not be correctly coerced to a base62
+string for output. This update is not back compatible; you must reset
+all polonium passwords.
+
+
+
+
+
+
+
+Polonium-GUI v0.2.1
 ------------------------------------------------------------------------------
 Date: 2014-8-15
 
