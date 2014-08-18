@@ -1,6 +1,6 @@
 
 <img src="icon.png" width="100"/>
-# Polonium (GUI) V0.3.0
+# Polonium (GUI) V0.4.1
 
 <img src="example.png"> </img>
 
@@ -13,12 +13,56 @@ A node-webkit gui for [Polonium](https://github.com/rgrannell1/polonium), a stat
 * Node.js v0.11.13
 * Node Webkit 0.8.6
 * Bignum
+* Is
 
 ### Installation
 
-Polonium-GUI is not particularily easy to install on Ubuntu, as certain packages required by node-webkit are unavailable.
+Polonium-GUI is not particularily easy to install on Ubuntu as certain packages required by node-webkit are unavailable.
 
-#### - Dependencies
+To install Polonium-GUI, simply git clone.
+
+```bash
+git clone https://github.com/rgrannell1/polonium-gui.git
+cd polonium-gui
+```
+
+# -- Node Webkit
+
+Now run execute.sh within that folder
+
+```bash
+sh execute.sh
+```
+
+This should download node-webkit to a folder in `~/polonium-gui'. Unfortunately
+Node Webkit requires libudev.so.0, a library not available within Ubuntu. This
+requires you to edit the nw executable manually. (instructions taken from 'daniel'
+on [askubuntu](http://askubuntu.com/questions/288821/how-do-i-resolve-a-cannot-open-shared-object-file-libudev-so-0-error)).
+
+```bash
+cd ~/polonium-gui/node-webkit-v0.8.6-linux-x64
+sudo apt-get install hexedit
+sudo hexedit nw
+```
+Search for the string `libudev.so.0`:
+
+* Press <kbd>Tab</kbd>.
+* Press <kbd>Ctrl + S</kbd>.
+* Type `libudev.so.0`.
+
+Now change the 0 in `libudev.so.0` to 1 so the string is `libudev.so.1`, which is available to Ubuntu.
+
+* Use the arrow keys to select the 0 in `libudev.so.0`.
+* Press 1.
+
+Now exit and save
+
+* Press <kbd>Ctrl + x</kbd>.
+* Press <kbd>y</kbd> to save.
+
+The node-webkit executable should now work as expected.
+
+### - Node
 
 To install node.js on Ubuntu use
 
@@ -27,6 +71,21 @@ sudo add-apt-repository ppa:chris-lea/node.js
 sudo apt-get update
 sudo apt-get install nodejs
 ```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 ### - Polonium GUI
 

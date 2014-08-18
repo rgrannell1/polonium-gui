@@ -1,4 +1,18 @@
 
+Polonium-GUI v0.4.1
+------------------------------------------------------------------------------
+
+ENHANCEMENTS:
+
+* Pressing Enter in the password field now initialises a call to
+Polonium.
+
+* Version number is now displayed by Polonium in top of window.
+
+
+
+
+
 Polonium-GUI v0.3.1
 ------------------------------------------------------------------------------
 Date: 2014-8-18

@@ -203,7 +203,7 @@ const copyKey = function (deriveError, derivedKey) {
 
 
 
-$("#get-password").click(function () {
+const callPolonium = function () {
 
 	// currently calling polonium; don't rerun till it's finished.
 	if (button.isActive()) {
@@ -245,7 +245,15 @@ $("#get-password").click(function () {
 
 	}
 
+}
+
+
+
+
+
+$("#get-password").click(callPolonium)
+$("#password").on('keypress', function (event) {
+	if (event.which	=== 13) {
+		callPolonium()
+	}
 })
-
-
-// toggleClass

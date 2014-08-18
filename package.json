@@ -2,7 +2,7 @@
   "name": "polonium-gui",
   "main": "index.html",
   "window": {
-    "title": "Polonium",
+    "title": "Polonium v0.4.1",
     "position": "mouse",
     "width": 350,
     "height": 235,
