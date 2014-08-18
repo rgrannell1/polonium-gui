@@ -6,6 +6,26 @@ const constants = {
 	defaultLength: 20
 }
 
+
+const _key = function (num) {
+	return function (fn) {
+		return function (event) {
+			if (event.which === num) {
+				fn()
+			}
+		}
+	}
+}
+
+const key = {
+	enter : _key(13),
+	escape: _key(27)
+}
+
+
+
+
+
 /*
 	copyText :: string -> function -> undefined
 
@@ -252,8 +272,8 @@ const callPolonium = function () {
 
 
 $("#get-password").click(callPolonium)
-$("#password").on('keypress', function (event) {
-	if (event.which	=== 13) {
-		callPolonium()
-	}
-})
+$("#password").on('keyup', key.enter(callPolonium))
+
+$(document).on( 'keyup', key.escape(function () {
+
+}) )
