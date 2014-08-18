@@ -1,6 +1,6 @@
 
 <img src="icon.png" width="100"/>
-# Polonium (GUI) V0.2.0
+# Polonium (GUI) V0.3.0
 
 <img src="example.png"> </img>
 
@@ -37,9 +37,6 @@ sudo cat ~/polonium-gui/launcher.txt >> ~/.local/share/applications/polonium.des
 ```
 
 You may need to restart your session by hitting <kbd>Alt + F2</kbd> and entering 'r'.
-
-
-
 
 ### Licence
 
