@@ -26,7 +26,7 @@ git clone https://github.com/rgrannell1/polonium-gui.git
 cd polonium-gui
 ```
 
-# -- Node Webkit
+### -- Node Webkit
 
 Now run execute.sh within that folder
 
