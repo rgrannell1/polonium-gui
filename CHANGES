@@ -9,6 +9,8 @@ Polonium.
 
 * Version number is now displayed by Polonium in top of window.
 
+* A subtle noise is now played when the password is copied to the clipboard (Ubuntu only).
+
 
 
 
