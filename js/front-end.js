@@ -149,7 +149,12 @@ const userPassword = {
 }
 
 /*
-	setCopyStatus :: Error -> undefined
+
+
+
+
+	setCopyStatus :: Error ->
+	undefined
 
 	Update the action button to let the user know the text was copied, either
 	successfully or otherwise.
@@ -216,7 +221,29 @@ const checkFull = function (salt, password) {
 */
 
 const copyKey = function (deriveError, derivedKey) {
-	copyText( derivedKey, function () {setCopyStatus(deriveError)} )
+	copyText( derivedKey, function () {
+
+		const platform = os.platform()
+
+		const sounds = {
+			ubuntu: '/usr/share/sounds/ubuntu/stereo/bell.ogg'
+		}
+
+		if (platform === 'linux') {
+
+			// Ubuntu.
+			fs.exists(sounds.ubuntu, function (exists) {
+
+				if (exists) {
+					cprocess.exec('paplay ' + sounds.ubuntu)
+				}
+
+			})
+
+		}
+
+		setCopyStatus(deriveError)
+	} )
 }
 
 
