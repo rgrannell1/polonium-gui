@@ -4,14 +4,10 @@ Polonium-GUI v0.4.1
 
 ENHANCEMENTS:
 
-* Pressing Enter in the password field now initialises a call to
-Polonium.
-
 * Version number is now displayed by Polonium in top of window.
 
-* A subtle noise is now played when the password is copied to the clipboard (Ubuntu only).
-
-
+* A subtle noise is now played when the password is copied to the clipboard. This
+is restricted to Ubuntu at the moment.
 
 
 
@@ -19,6 +15,10 @@ Polonium-GUI v0.3.1
 ------------------------------------------------------------------------------
 Date: 2014-8-18
 
+ENHANCEMENTS:
+
+* Pressing Enter in the password field now initialises a call to
+Polonium.
 
 BUG-FIXES:
 
