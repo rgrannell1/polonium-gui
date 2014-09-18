@@ -16,8 +16,16 @@
 			Require dependencies.
 		*/
 
+		const fs         = require('fs')
+		const start_time = (new Date).getTime()
+
+		fs.writeFile('~/polonium/test/data/start_times.txt', start_times, function () {
+			if (err) {
+				// do nothing for now.
+			}
+		})
+
 		const is       = require('is')
-		const fs       = require('fs')
 		const os       = require('os')
 
 		const polonium = require('./polonium/polonium').main
