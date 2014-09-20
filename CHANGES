@@ -6,6 +6,11 @@ ENHANCEMENTS:
 
 * Removed a large amount of unused bootstrap css.
 
+* Now logging startup time, in order to approve performance.
+
+
+
+
 
 
 
