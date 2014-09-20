@@ -17,16 +17,19 @@
 		*/
 
 		const fs         = require('fs')
-		const start_time = (new Date).getTime() + "\n\n"
+		const os         = require('os')
+		const path       = require('path')
 
-		fs.writeFile('~/polonium-gui/test/data/start_times.txt', start_times, function () {
+		const times_path = "/home/ryan/polonium-gui/test/data/load_times.txt"
+		const start_time = "loaded    " + (new Date).getTime() + "\n"
+
+		fs.appendFile(times_path, start_time, function (err) {
 			if (err) {
-				// do nothing for now.
+				console.log('error writing to file ' + times_path)
 			}
 		})
 
 		const is       = require('is')
-		const os       = require('os')
 
 		const polonium = require('./polonium/polonium').main
 		const cprocess = require('child_process')
