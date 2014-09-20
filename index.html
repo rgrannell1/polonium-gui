@@ -17,9 +17,9 @@
 		*/
 
 		const fs         = require('fs')
-		const start_time = (new Date).getTime()
+		const start_time = (new Date).getTime() + "\n\n"
 
-		fs.writeFile('~/polonium/test/data/start_times.txt', start_times, function () {
+		fs.writeFile('~/polonium-gui/test/data/start_times.txt', start_times, function () {
 			if (err) {
 				// do nothing for now.
 			}
