@@ -20,7 +20,7 @@
 		const os         = require('os')
 		const path       = require('path')
 
-		const times_path = "/home/ryan/polonium-gui/test/data/load_times.txt"
+		const times_path = path.join(process.env.HOME, "/polonium-gui/test/data/load_times.txt")
 		const start_time = "loaded    " + (new Date).getTime() + "\n"
 
 		fs.appendFile(times_path, start_time, function (err) {
