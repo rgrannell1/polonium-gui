@@ -28,7 +28,10 @@ cd polonium-gui
 
 To upgrade, run
 ```
+cd
+
 git clone https://github.com/rgrannell1/polonium-gui.git tmp-polonium-gui
+
 cp rf tmp-polonium-gui polonium-gui
 rm -rf tmp-polonium-gui
 ```
