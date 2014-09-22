@@ -9,6 +9,7 @@ then
 	cd ~/polonium-gui/
 
 	tar xvzf webkit.tar.gz
+	cp node-webkit-v0.8.6-linux-x64/* .
 
 else
 
@@ -20,6 +21,6 @@ else
 
 	# -- use nw to execute app.zip
 	# -- this will write the final startup time to a file on load.
-	~/polonium-gui/node-webkit-v0.8.6-linux-x64/nw ~/polonium-gui/app.zip
+	./nw
 
 fi

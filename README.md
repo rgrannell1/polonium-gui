@@ -26,6 +26,13 @@ git clone https://github.com/rgrannell1/polonium-gui.git
 cd polonium-gui
 ```
 
+To upgrade, run
+```
+git clone https://github.com/rgrannell1/polonium-gui.git tmp-polonium-gui
+cp rf tmp-polonium-gui polonium-gui
+rm -rf tmp-polonium-gui
+```
+
 ### -- Node Webkit
 
 Now run execute.sh within that folder
