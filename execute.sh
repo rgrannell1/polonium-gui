@@ -13,14 +13,12 @@ then
 
 else
 
-	echo '--polonium-gui: executing polonium-gui.'
-
+	echo '-- polonium-gui: executing polonium-gui.'
 
 	# echo the start time to a file
-	echo launched    $(($(date +%s%N)/1000000)) >> ~/polonium-gui/test/data/load_times.txt
+	echo launched $(($(date +%s%N)/1000000)) >> ~/polonium-gui/test/data/load_times.txt
 
 	# -- use nw to execute app.zip
-	# -- this will write the final startup time to a file on load.
-	./nw
+	~/polonium-gui/nw
 
 fi
