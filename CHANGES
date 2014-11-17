@@ -1,4 +1,16 @@
 
+Polonium-GUI v0.7.1
+------------------------------------------------------------------------------
+
+ENHANCEMENTS:
+
+* Pressing enter on the salt field when both the passeword and salt are
+present now submits the password, closing #7.
+
+
+
+
+
 Polonium-GUI v0.6.1
 ------------------------------------------------------------------------------
 
