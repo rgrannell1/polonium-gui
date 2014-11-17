@@ -300,6 +300,11 @@ const callPolonium = function () {
 
 $("#get-password").click(callPolonium)
 $("#password").on('keyup', key.enter(callPolonium))
+$("#salt")    .on('keyup', function (event) {
+	if ($("#salt").val().length > 0) {
+		key.enter(callPolonium)(event)
+	}
+})
 
 $(document).on( 'keyup', key.escape(function () {
 
