@@ -1,10 +1,8 @@
 @font-face {
-  font-family: Lato;
-  src: url("/fonts/lato/lato-regular.tff") format("
-    truetype"); 
-}
+  font-family: Cantarell;
+  src: url("/fonts/cantarell/cantarell.tff") format("truetype"); }
 html * {
-  font-family: Lato; }
+  font-family: Cantarell; }
 
 .input-group:nth-child(2) {
   margin-bottom: 10px; }

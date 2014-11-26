@@ -19,6 +19,6 @@ else
 	echo launched $(($(date +%s%N)/1000000)) >> ~/polonium-gui/test/load_times.txt
 
 	# -- use nw to execute app.zip
-	~/polonium-gui/nw
+	~/Code/polonium-gui/nw
 
 fi
