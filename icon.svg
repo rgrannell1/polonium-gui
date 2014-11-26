@@ -14,9 +14,9 @@
    height="512"
    id="svg2"
    version="1.1"
-   inkscape:version="0.48.4 r9939"
+   inkscape:version="0.48.5 r10040"
    sodipodi:docname="icon.svg"
-   inkscape:export-filename="/home/ryan/Code/polonium-gui/icon.png"
+   inkscape:export-filename="/home/ryan/Code/Babel.py/icon.png"
    inkscape:export-xdpi="45"
    inkscape:export-ydpi="45">
   <defs
@@ -24,11 +24,11 @@
     <linearGradient
        id="linearGradient4017">
       <stop
-         style="stop-color:#ffffff;stop-opacity:1;"
+         style="stop-color:#eef2f5;stop-opacity:1;"
          offset="0"
          id="stop4019" />
       <stop
-         style="stop-color:#ffffff;stop-opacity:0.79038459;"
+         style="stop-color:#c4d2dd;stop-opacity:1;"
          offset="1"
          id="stop4021" />
     </linearGradient>
@@ -52,7 +52,7 @@
        x2="256.3262"
        y2="1298.7748"
        gradientUnits="userSpaceOnUse"
-       gradientTransform="matrix(0.99212598,0,0,0.98814229,2.015748,8.4311696)" />
+       gradientTransform="matrix(0.99212598,0,0,0.98814229,2.3270452,7.1859807)" />
   </defs>
   <sodipodi:namedview
      id="base"
@@ -61,15 +61,15 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="0.803091"
-     inkscape:cx="44.73623"
-     inkscape:cy="218.13555"
+     inkscape:zoom="0.22627417"
+     inkscape:cx="1143.2758"
+     inkscape:cy="369.13669"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"
-     inkscape:window-width="1680"
-     inkscape:window-height="995"
-     inkscape:window-x="1366"
+     inkscape:window-width="1366"
+     inkscape:window-height="706"
+     inkscape:window-x="0"
      inkscape:window-y="27"
      inkscape:window-maximized="1"
      showguides="false"
@@ -82,6 +82,9 @@
        orientation="1,0"
        position="256,256"
        id="guide3915" />
+    <inkscape:grid
+       type="xygrid"
+       id="grid3773" />
   </sodipodi:namedview>
   <metadata
      id="metadata7">
@@ -117,39 +120,42 @@
        y="542.36218"
        ry="121.59225" />
     <rect
-       style="color:#000000;fill:url(#linearGradient4023);fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:1.26100004;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate"
+       style="color:#000000;fill:url(#linearGradient4023);fill-opacity:1.0;fill-rule:evenodd;stroke:none;stroke-width:1.26100004000000010;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate"
        id="rect3868-0-9"
        width="504"
        height="500"
-       x="4"
-       y="544.36218"
+       x="4.3112974"
+       y="543.117"
        ry="119.67741" />
-    <text
-       xml:space="preserve"
-       style="font-size:824.41534423999985393px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-indent:0;text-align:start;text-decoration:none;line-height:125%;letter-spacing:0px;word-spacing:0px;text-transform:none;direction:ltr;block-progression:tb;writing-mode:lr-tb;text-anchor:start;baseline-shift:baseline;color:#000000;fill:#767676;fill-opacity:1;fill-rule:nonzero;stroke:none;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate;font-family:Bitstream Charter;-inkscape-font-specification:Bitstream Charter"
-       x="53.128002"
-       y="1205.3683"
-       id="text2985"
-       sodipodi:linespacing="125%"
-       transform="scale(0.98766886,1.0124851)"><tspan
-         sodipodi:role="line"
-         id="tspan2987"
-         x="53.128002"
-         y="1205.3683">*</tspan></text>
-    <g
-       transform="scale(0.98766886,1.0124851)"
-       style="font-size:824.41534423999985393px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-indent:0;text-align:start;text-decoration:none;line-height:125%;letter-spacing:0px;word-spacing:0px;text-transform:none;direction:ltr;block-progression:tb;writing-mode:lr-tb;text-anchor:start;baseline-shift:baseline;color:#000000;fill:#2eb0d0;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:1;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate;font-family:Bitstream Charter;-inkscape-font-specification:Bitstream Charter"
-       id="text2985-3">
-      <path
-         d="m 259.23184,611.04415 -32.1522,50.28933 26.38129,103.05192 11.54182,0 26.38129,-103.05192 -32.1522,-50.28933 m 104.70075,106.34958 -89.03686,56.88466 3.29766,10.7174 105.52517,-6.59533 37.9231,-46.16726 -57.70907,-14.83947 m -91.51011,80.7927 -9.06857,5.77091 38.74753,98.92984 55.23582,21.4348 -3.29766,-59.35791 -81.61712,-66.77764 m -26.38129,0 -82.44153,66.77764 -3.29766,59.35791 55.23582,-20.61038 38.74753,-99.75426 -8.24416,-5.77091 m -91.5101,-80.7927 -56.884659,14.83947 37.098689,46.16726 106.34958,6.59533 3.29766,-9.89299 -89.86127,-57.70907"
-         style="marker:none;fill:#2eb0d0;fill-opacity:1"
-         id="path3063" />
-    </g>
+    <path
+       style="color:#000000;fill:#d74b30;fill-opacity:1;fill-rule:nonzero;stroke:#2d2d2d;stroke-width:0.92584515;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:0.48706898;stroke-dasharray:none;stroke-dashoffset:0;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate"
+       d="m 256.01419,632.87074 c -61.38367,0 -111.15928,49.74668 -111.15928,111.13035 0,0.11621 -3.5e-4,0.23106 0,0.34719 7.54553,-0.003 24.63434,0.0716 26.0394,-0.0579 -2.7e-4,-0.089 0,-0.17133 0,-0.2604 0,-47.04015 38.13759,-85.14882 85.17775,-85.14882 47.04015,0 85.17775,38.31246 85.17775,85.35262 0,0 25.81602,0.11441 25.92366,0.11441 3.6e-4,-0.11612 0,-0.23098 0,-0.34719 0,-61.38362 -49.77561,-111.1303 -111.15928,-111.1303 z"
+       id="path3067"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="ssccssccss" />
+    <rect
+       style="color:#000000;fill:#d74b30;fill-opacity:1;fill-rule:nonzero;stroke:#2d2d2d;stroke-width:0.92584515;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:0.48706898;stroke-dasharray:none;stroke-dashoffset:0;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate"
+       id="rect3003-7"
+       width="292.56705"
+       height="26.386585"
+       x="109.90788"
+       y="760.9472" />
+    <path
+       style="color:#000000;fill:#d74b30;fill-opacity:1;fill-rule:nonzero;stroke:#2d2d2d;stroke-width:0.92584515;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:0.48706898;stroke-dashoffset:0;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate"
+       d="m 109.90788,812.79454 292.56706,0 0,26.38658 -292.56706,0 z"
+       id="rect3003-7-6"
+       inkscape:connector-curvature="0" />
+    <rect
+       style="color:#000000;fill:#d74b30;fill-opacity:1;fill-rule:nonzero;stroke:#2d2d2d;stroke-width:0.92584515;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:0.48706898;stroke-dasharray:none;stroke-dashoffset:0;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate"
+       id="rect3003-7-6-5-4"
+       width="292.56705"
+       height="26.386585"
+       x="109.90788"
+       y="864.64185" />
     <path
        inkscape:connector-curvature="0"
-       d="m 256.03522,618.6731 -31.75573,50.9172 26.05598,104.33853 11.39949,0 26.05598,-104.33853 -31.75572,-50.9172 m 13.02798,189.47877 -8.95674,5.84296 38.26973,100.16499 54.5547,21.70242 -3.257,-60.099 -80.61069,-67.61137 m -26.05598,0 -81.42493,67.61137 -3.257,60.099 54.5547,-20.86771 38.26973,-100.9997 -8.1425,-5.84296"
-       style="font-size:824.41534423999985393px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-indent:0;text-align:start;text-decoration:none;line-height:125%;letter-spacing:0px;word-spacing:0px;text-transform:none;direction:ltr;block-progression:tb;writing-mode:lr-tb;text-anchor:start;baseline-shift:baseline;color:#000000;fill:#2a2a2a;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:1;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate;font-family:Bitstream Charter;-inkscape-font-specification:Bitstream Charter"
-       id="path3063-2"
-       sodipodi:nodetypes="cccccccccccccccccc" />
+       style="color:#000000;fill:#d74b30;fill-opacity:1;fill-rule:nonzero;stroke:#2d2d2d;stroke-width:0.92584515;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:0.48706898;stroke-dashoffset:0;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate"
+       d="m 109.90788,916.48919 292.56706,0 0,26.38659 -292.56706,0 z"
+       id="rect3003-7-6-9-5" />
   </g>
 </svg>

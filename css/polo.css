@@ -1,1 +1,24 @@
-.input-group:nth-child(2){margin-bottom:10px}.input-group{width:100%}#user-prompt{color:#b94a48}html{padding:40px}.active{cursor:progress}
+@font-face {
+  font-family: Lato;
+  src: url("/fonts/lato/lato-regular.tff") format("
+    truetype"); 
+}
+html * {
+  font-family: Lato; }
+
+.input-group:nth-child(2) {
+  margin-bottom: 10px; }
+
+.input-group {
+  width: 100%; }
+
+#user-prompt {
+  color: #B94A48; }
+
+html {
+  padding: 40px; }
+
+.active {
+  cursor: progress; }
+
+/*# sourceMappingURL=polo.css.map */

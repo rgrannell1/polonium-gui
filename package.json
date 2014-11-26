@@ -1,22 +1,22 @@
 {
-  "name": "polonium-gui",
-  "main": "index.html",
+  "name":         "polonium-gui",
+  "main":         "index.html",
   "window": {
-    "title": "Polonium v0.6.1",
-    "position": "mouse",
-    "width": 350,
-    "height": 235,
-    "min_width": 350,
+    "title":      "Polonium v0.7.1",
+    "position":   "mouse",
+    "width":      350,
+    "height":     235,
+    "min_width":  350,
     "min_height": 235,
-    "max_width": 350,
+    "max_width":  350,
     "max_height": 235,
-    "frame": true,
-    "toolbar": false,
-    "resizable": false,
-    "icon": "icon.png"
+    "frame":      true,
+    "toolbar":    false,
+    "resizable":  false,
+    "icon":       "icon.png"
   },
   "dependencies": {
-    "is": "rgrannell1/is",
-    "bignum": "justmoon/node-bignum"
+    "is":         "rgrannell1/is",
+    "bignum":     "justmoon/node-bignum"
   }
 }
